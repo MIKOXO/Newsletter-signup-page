@@ -7,7 +7,7 @@ const App = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <main className="mx-auto container flex flex-col justify-center items-center bg-White rounded-b-3xl lg:rounded-3xl shadow-md max-w-[1000px]">
+    <main className="mx-auto container flex flex-col justify-center items-center min-h-screen">
       {!subscribed ? (
         <SubscribeForm
           onSubscribe={(email) => {

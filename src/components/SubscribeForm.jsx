@@ -31,7 +31,7 @@ const SubscribeForm = ({ onSubscribe }) => {
   }, [error]);
 
   return (
-    <div className="flex flex-col-reverse max-lg:items-center md:flex-row gap-4 md:p-4">
+    <div className="flex flex-col-reverse max-lg:items-center md:flex-row gap-4 md:p-4 bg-White rounded-b-3xl lg:rounded-3xl shadow-md max-w-[1000px]">
       {/* Main content */}
       <div className="flex flex-col md:p-16 px-4 md:order-1">
         <h1 className="text-4xl lg:text-6xl font-extrabold my-4 text-Blue800">
