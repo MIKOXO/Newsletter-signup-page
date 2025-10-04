@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import illustrationDesktop from "../assets/illustration-sign-up-desktop.svg";
-// import illustrationTablet from "./assets/illustration-sign-up-tablet.svg";
 import illustrationMobile from "../assets/illustration-sign-up-mobile.svg";
 import iconList from "../assets/icon-list.svg";
 
-const SubscribeForm = () => {
+const SubscribeForm = ({ onSubscribe }) => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Valid email required");
+      return;
+    }
+
+    setError("");
+    onSubscribe(email);
+  };
+
+  // Remove the error message after 2 seconds
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError("");
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
+
   return (
     <div className="flex flex-col-reverse max-lg:items-center md:flex-row gap-4 md:p-4">
       {/* Main content */}
@@ -31,14 +56,29 @@ const SubscribeForm = () => {
           </div>
         </div>
 
-        <form className="flex flex-col gap-4 mt-8 max-md:mb-4">
-          <label htmlFor="email" className="font-bold text-Blue700 text-sm">
-            Email address
-          </label>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 mt-8 max-md:mb-4"
+        >
+          <div className="flex justify-between items-center">
+            <label htmlFor="email" className="font-bold text-Blue700 text-sm">
+              Email address
+            </label>
+            {error && (
+              <p className="text-PrimaryRed text-sm font-bold">{error}</p>
+            )}
+          </div>
+
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="email@example.com"
-            className="p-3 border border-Grey rounded-lg focus:outline-none focus:text-Blue800 focus:ring-1 focus:ring-Blue800"
+            className={`p-3 border border-Grey rounded-lg focus:outline-none focus:text-Blue800 focus:ring-1 ${
+              error
+                ? "border-PrimaryRed bg-[#ffe8e6] text-PrimaryRed placeholder-PrimaryRed"
+                : "focus:ring-Blue800"
+            }`}
           />
 
           {/* Animated button */}
