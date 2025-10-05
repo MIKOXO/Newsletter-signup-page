@@ -1,16 +1,84 @@
-# React + Vite
+# Newsletter Sign-up Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, accessible newsletter sign-up UI built with React, Vite and Tailwind CSS. This repository is a solution to the Frontend Mentor "Newsletter sign-up page" challenge and demonstrates a small, production-like frontend setup with animations (Framer Motion), linting, and a simple form/validation flow.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer-Motion](https://motion.dev/)
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+These steps will get the project running on your local machine for development and testing.
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js (LTS recommended)
+- npm (or yarn/pnpm if you prefer — commands below use npm)
+
+### Install
+
+Open a terminal in the project root and run:
+
+```bash
+npm install
+```
+
+### Available scripts
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview a production build locally:
+
+```bash
+npm run preview
+```
+
+Run ESLint across the project:
+
+```bash
+npm run lint
+```
+
+## Project structure
+
+Key files and folders:
+
+- `index.html` — App entry HTML
+- `src/` — Application source files
+  - `main.js  ` — App bootstrap and root render
+  - `App.jsx` — Root component
+  - `index.css` — Tailwind input & global styles
+  - `components/SubscribeForm.jsx` — Form and valida ion UI
+  - `components/SuccessCard.jsx` — Post-submit success state
+  - `assets/` — Images and icons used by the UI
+- `public/` — Static files served by Vite
+- `package.json` — Project metadata and scripts
+- `tailwind.config.js`, `postcss.config.js` — Styling config
+
+## Features
+
+- Responsive layout for mobile, tablet, and desktop
+- Client-side validation for the email input
+- Animated transitions using Framer Motion
+- Accessible form semantics and focus states
+- Minimal, modern toolchain using Vite and Tailwind
+
+## Credits
+
+- Challenge by [Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv) for the challenge and design inspiration
+- Icons and images from the challenge assets
+
+- Coded by [MIKOXO](https://github.com/MIKOXO)
